@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      text-align: center;
+      background-color: #333;
+      color: white;
+      padding: 20px;
+    }
+    .registration-form {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #555;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Registration Form</h1>
+  <p>Fill out the form to create an account.</p>
+</div>
+
+<div class="registration-form">
+  <form id="registrationForm" action="#" method="post">
+    <label for="fullName">Full Name:</label>
+    <input type="text" id="fullName" name="fullName" required><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br>
+
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" id="confirmPassword" name="confirmPassword" required><br>
+
+    <button type="submit" >Register</button>
+  </form>
+</div>
+
+<script>
+    // Function to save registered user data to localStorage
+  function saveUserData(username, password) {
+    const userData = JSON.parse(localStorage.getItem('registeredUsers')) || [];
+    userData.push({ username, password });
+    localStorage.setItem('registeredUsers', JSON.stringify(userData));
+  }
+
+  // Event listener for registration form submission
+  document.getElementById('registrationForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // Save user data to localStorage
+    saveUserData(username, password);
+
+    // Redirect to login page
+    window.location.href = 'login.html';
+  });
+</script>
+
+</body>
+</html>
