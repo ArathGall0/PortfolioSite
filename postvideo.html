@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Your CSS styles here */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f1f1f1;
+    }
+    .header {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .form-container {
+      background-color: white;
+      border-radius: 5px;
+      padding: 1rem;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+    .form-container h2 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Video Sharing Platform</h1>
+  </div>
+
+  <div class="container">
+    <div class="form-container">
+      <h2>Post a Video</h2>
+      <form id="videoForm" enctype="multipart/form-data">
+        <label for="videoFile">Choose a video:</label>
+        <input type="file" id="videoFile" name="videoFile" accept="video/*" required>
+        <button type="submit">Upload Video</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2023 Video Sharing Platform</p>
+  </div>
+
+  <script>
+    document.getElementById('videoForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      // Simulate video upload process
+      const videoFile = document.getElementById('videoFile').files[0];
+      if (videoFile) {
+        alert('Video uploaded successfully!');
+        window.location.href = 'index.html';
+        // You can add actual logic here to send the video data to the server
+      } else {
+        alert('Please select a video file.');
+      }
+    });
+  </script>
+</body>
+</html>
